@@ -20,6 +20,7 @@
                     v-for="(opt) in obj.options"
                      :key="opt.link"
                     :index="opt.link"
+                    @click='linkRout'
             >
               {{ opt.title }}
             </el-menu-item>
@@ -136,6 +137,9 @@ export default class Home extends Vue {
     }
 
     // methods
+     public linkRout(): any {
+         this.$emit('closeAside');
+     }
     // computed
 }
 </script>

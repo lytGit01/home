@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header class="head">
+      <i class='el-icon-menu menShow' @click='asideShow'></i>
       <h3 class="title">
         云涛-个人笔记
       </h3>
@@ -10,10 +11,12 @@
         </li>
       </ul>
     </header>
-    <aside class="aside">
-      <asd/>
+    <aside class="aside" :class="{'asideShow': asideChange}">
+      <asd @closeAside="asideHide" />
     </aside>
-    <router-view/>
+    <div class="main" @click='asideHide'>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -27,15 +30,47 @@ import Asd from './views/aside.vue'; // @ is an alias to /src
   },
 })
 export default class Home extends Vue {
+     public asideChange: boolean;
      constructor() {
        super();
+       this.asideChange = false;
      }
      // methods
+     public asideShow() {
+       this.asideChange = !this.asideChange;
+     }
+     public asideHide() {
+       this.asideChange = false;
+     }
      // computed
  }
 </script>
 
 <style lang="scss" scoped>
+@media only screen and (max-width: 768px) {
+    .aside {
+       left: -3rem !important;
+       transition: left .3s
+    }
+    .main {
+      padding-left: 0 !important;
+    }
+    .menShow {
+      display: block !important;
+    }
+}
+@media only screen and (max-width: 1100px) and (min-width: 769px){
+    .aside {
+       width: 2.5rem !important;
+    }
+    .main {
+      padding-left: 2.5rem !important;
+       }
+}
+.asideShow {
+  left: 0 !important;
+  transition: left .3s;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -62,6 +97,7 @@ export default class Home extends Vue {
   .title {
     font-size: 0.2rem;
     font-weight: 800;
+    line-height: 0;
   }
 }
 .links {
@@ -80,19 +116,26 @@ export default class Home extends Vue {
   left: 0;
   overflow: auto;
   border-right: 1px solid #ccc;
+  background: #fff;
 }
 .main {
   width: 100%;
 }
 .content {
-  position: absolute;
-  top: .56rem;
-  left: 3rem;
-  bottom: 0;
-  width: calc(100% - 3rem);
-  min-width: 640px;
+  width: 100%;
+  height: 100%;
   font-size: .14rem;
   overflow: auto;
-  padding: .5rem .8rem;
+  padding: .96rem .3rem .4rem .4rem;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  padding-left: 3rem;
+}
+.menShow {
+  display: none;
+  font-size: .2rem;
+  padding-right: .2rem;
 }
 </style>
