@@ -71,6 +71,11 @@ export default new Router({
         component: () => import('./components/vue/vue.md'),
     },
     {
+        path: '/vueCli3',
+        name: 'vueCli3',
+        component: () => import('./components/vue/vueCli3.md'),
+    },
+    {
         path: '/react',
         name: 'react',
         component: () => import('./components/react/react.md'),
