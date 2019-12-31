@@ -48,7 +48,12 @@ module.exports = {
     css: {
         extract: true, // 是否使用css分离插件 ExtractTextPlugin
         sourceMap: false, // 开启 CSS source maps
-        loaderOptions: {} // css预设器配置项
+        loaderOptions: {
+            sass: {
+                // 根据自己样式文件的位置调整
+                prependData: '@import "@/assets/css/pages/global.scss";'
+            }
+        }
     },
 
     devServer: {
@@ -79,37 +84,37 @@ module.exports = {
                     .end();
                 config.plugins.delete('prefetch');
             }
-        }
-        // 最小化代码
-        config.optimization.minimize(true);
-        // 分割代码
-        config.optimization.splitChunks({
-            chunks: 'async',
-            minSize: 30000, // 模块的最小体积
-            minChunks: 1, // 模块的最小被引用次数
-            maxAsyncRequests: 5, // 按需加载的最大并行请求数
-            maxInitialRequests: 3, // 一个入口最大并行请求数
-            automaticNameDelimiter: '~', // 文件名的连接符
-            name: true,
-            cacheGroups: { // 缓存数组
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true
-                },
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10
+            // 最小化代码
+            config.optimization.minimize(true);
+            // 分割代码
+            config.optimization.splitChunks({
+                chunks: 'async',
+                minSize: 30000, // 模块的最小体积
+                minChunks: 1, // 模块的最小被引用次数
+                maxAsyncRequests: 5, // 按需加载的最大并行请求数
+                maxInitialRequests: 3, // 一个入口最大并行请求数
+                automaticNameDelimiter: '~', // 文件名的连接符
+                name: true,
+                cacheGroups: { // 缓存数组
+                    default: {
+                        minChunks: 2,
+                        priority: -20,
+                        reuseExistingChunk: true
+                    },
+                    vendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        priority: -10
+                    }
                 }
-            }
-        });
-        // 压缩图片
-        config.module
-            .rule('images')
-            .use('image-webpack-loader')
-            .loader('image-webpack-loader')
-            .options({ bypassOnDebug: true })
-            .end();
+            });
+            // 压缩图片
+            config.module
+                .rule('images')
+                .use('image-webpack-loader')
+                .loader('image-webpack-loader')
+                .options({ bypassOnDebug: true })
+                .end();
+        }
     },
     configureWebpack: {
         // 通过 compression-webpack-plugin 插件对js文件进行gzip压缩
@@ -118,5 +123,6 @@ module.exports = {
     // 第三方插件配置
     pluginOptions: {}
 };
+
 
 ```

@@ -83,13 +83,13 @@ export default class Home extends Vue {
 }
 .head {
   position: fixed;
-  background: #fff;
   z-index: 20;
   top: 0;
   left: 0;
   height: .56rem;
   width: 100%;
   border-bottom: 1px #eaecef solid;
+  background: #fff;
   display: flex;
   justify-content: left;
   align-items: center;

@@ -125,7 +125,7 @@ export default class Home extends Vue {
                     {
                       link: '/vueCli3',
                       title: 'vueCli3',
-                    },
+                    }
                 ],
             },
             {

@@ -10,7 +10,6 @@
 //   minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
 //   deleteOriginalAssets: false // 删除原文件
 // });
-
 module.exports = {
   // 部署应用时的根路径(默认'/'),也可用相对路径(存在使用限制) 原本属性名为baseUrl【已废除】
   publicPath: process.env.NODE_ENV === 'development' ? './' : '/',
@@ -45,7 +44,11 @@ module.exports = {
   css: {
     extract: true, // 是否使用css分离插件 ExtractTextPlugin
     sourceMap: false, // 开启 CSS source maps
-    loaderOptions: {} // css预设器配置项
+    loaderOptions: {
+      sass: {
+        prependData: `@import "~@/assest/css/global.scss";`
+      }
+    } // css预设器配置项
   },
 
   devServer: {
@@ -76,37 +79,37 @@ module.exports = {
             .end();
         config.plugins.delete('prefetch');
       }
-    }
-    // 最小化代码
-    config.optimization.minimize(true);
-    // 分割代码
-    config.optimization.splitChunks({
-      chunks: 'async',
-      minSize: 30000, // 模块的最小体积
-      minChunks: 1, // 模块的最小被引用次数
-      maxAsyncRequests: 5, // 按需加载的最大并行请求数
-      maxInitialRequests: 3, // 一个入口最大并行请求数
-      automaticNameDelimiter: '~', // 文件名的连接符
-      name: true,
-      cacheGroups: { // 缓存数组
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        },
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
+      // 最小化代码
+      config.optimization.minimize(true);
+      // 分割代码
+      config.optimization.splitChunks({
+        chunks: 'async',
+        minSize: 30000, // 模块的最小体积
+        minChunks: 1, // 模块的最小被引用次数
+        maxAsyncRequests: 5, // 按需加载的最大并行请求数
+        maxInitialRequests: 3, // 一个入口最大并行请求数
+        automaticNameDelimiter: '~', // 文件名的连接符
+        name: true,
+        cacheGroups: { // 缓存数组
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+          },
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10
+          }
         }
-      }
-    });
-    // 压缩图片
-    config.module
-        .rule('images')
-        .use('image-webpack-loader')
-        .loader('image-webpack-loader')
-        .options({ bypassOnDebug: true })
-        .end();
+      });
+      // 压缩图片
+      config.module
+          .rule('images')
+          .use('image-webpack-loader')
+          .loader('image-webpack-loader')
+          .options({ bypassOnDebug: true })
+          .end();
+    }
   },
   configureWebpack: config => {
     config.module.rules.push({
