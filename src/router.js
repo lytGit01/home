@@ -30,6 +30,11 @@ export default new Router({
             component: () => import('@/components/js/undefined.md'),
         },
         {
+            path: '/axios',
+            name: 'axios',
+            component: () => import('@/components/js/axios.md'),
+        },
+        {
             path: '/array',
             name: 'array',
             component: () => import('@/components/js/array.md'),

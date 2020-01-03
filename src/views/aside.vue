@@ -95,6 +95,10 @@ export default class Home extends Vue {
                         link: '/map',
                         title: 'new Map',
                     },
+                    {
+                        link: '/axios',
+                        title: '处理重复请求',
+                    },
                 ],
             },
             {
@@ -125,7 +129,7 @@ export default class Home extends Vue {
                     {
                       link: '/vueCli3',
                       title: 'vueCli3',
-                    }
+                    },
                 ],
             },
             {
