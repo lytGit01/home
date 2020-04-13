@@ -80,6 +80,11 @@ export default new Router({
             component: () => import('@/components/vue/vueCli3.md'),
         },
         {
+            path: '/vueRouter',
+            name: 'vueRouter',
+            component: () => import('@/components/vue/vueRouter.md'),
+        },
+        {
             path: '/vue',
             name: 'vue',
             component: () => import('@/components/vue/vue.md'),

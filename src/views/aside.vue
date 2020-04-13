@@ -130,6 +130,10 @@ export default class Home extends Vue {
                       link: '/vueCli3',
                       title: 'vueCli3',
                     },
+                    {
+                      link: '/vueRouter',
+                      title: 'vueRouter源码分析',
+                    },
                 ],
             },
             {
