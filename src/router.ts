@@ -91,11 +91,16 @@ export default new Router({
         name: 'vueCli3',
         component: () => import('@/components/vue/vueCli3.md'),
     },
-      {
-          path: '/vue',
-          name: 'vue',
-          component: () => import('@/components/vue/vue.md'),
-      },
+    {
+        path: '/vueRouter',
+        name: 'vueRouter',
+        component: () => import('@/components/vue/vueRouter.md'),
+    },
+    {
+        path: '/vue',
+        name: 'vue',
+        component: () => import('@/components/vue/vue.md'),
+    },
     {
         path: '/react',
         name: 'react',
