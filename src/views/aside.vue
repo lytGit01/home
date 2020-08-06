@@ -108,6 +108,14 @@ export default class Home extends Vue {
                         link: '/javaZc',
                         title: 'java基础篇',
                     },
+                    {
+                        link: '/javaZj',
+                        title: 'java注解',
+                    },
+                    {
+                        link: '/springCloud',
+                        title: 'springCloud',
+                    },
                 ],
             },
             {

@@ -70,6 +70,16 @@ export default new Router({
             component: () => import('@/components/java/javaZc.md'),
         },
         {
+            path: '/javaZj',
+            name: 'javaZj',
+            component: () => import('@/components/java/javaZj.md'),
+        },
+        {
+            path: '/springCloud',
+            name: 'springCloud',
+            component: () => import('@/components/java/springCloud.md'),
+        },
+        {
             path: '/vue',
             name: 'vue',
             component: () => import('@/components/vue/vue.md'),
