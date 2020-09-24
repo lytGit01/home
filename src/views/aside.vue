@@ -153,6 +153,15 @@ export default class Home extends Vue {
                     },
                 ],
             },
+          {
+            title: 'three',
+            options: [
+              {
+                link: '/three1',
+                title: 'three1',
+              },
+            ],
+          },
         ];
     }
 

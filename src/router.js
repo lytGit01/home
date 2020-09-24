@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import H5 from '@/components/html/h5.md';
+import H5 from '@/page/html/h5.md';
 Vue.use(Router);
 export default new Router({
     mode: 'history',
@@ -17,98 +17,103 @@ export default new Router({
         {
             path: '/c3',
             name: 'css3',
-            component: () => import('@/components/css/css3.md'),
+            component: () => import('@/page/css/css3.md'),
         },
         {
             path: '/null',
             name: 'null',
-            component: () => import('@/components/js/null.md'),
+            component: () => import('@/page/js/null.md'),
         },
         {
             path: '/undefined',
             name: 'undefined',
-            component: () => import('@/components/js/undefined.md'),
+            component: () => import('@/page/js/undefined.md'),
         },
         {
             path: '/axios',
             name: 'axios',
-            component: () => import('@/components/js/axios.md'),
+            component: () => import('@/page/js/axios.md'),
         },
         {
             path: '/array',
             name: 'array',
-            component: () => import('@/components/js/array.md'),
+            component: () => import('@/page/js/array.md'),
         },
         {
             path: '/object',
             name: 'object',
-            component: () => import('@/components/js/object.md'),
+            component: () => import('@/page/js/object.md'),
         },
         {
             path: '/string',
             name: 'string',
-            component: () => import('@/components/js/string.md'),
+            component: () => import('@/page/js/string.md'),
         },
         {
             path: '/fun',
             name: 'fun',
-            component: () => import('@/components/js/fun.md'),
+            component: () => import('@/page/js/fun.md'),
         },
         {
             path: '/set',
             name: 'newSet',
-            component: () => import('@/components/js/newSet.md'),
+            component: () => import('@/page/js/newSet.md'),
         },
         {
             path: '/map',
             name: 'newMap',
-            component: () => import('@/components/js/newMap.md'),
+            component: () => import('@/page/js/newMap.md'),
         },
         {
             path: '/javaZc',
             name: 'javaZ',
-            component: () => import('@/components/java/javaZc.md'),
+            component: () => import('@/page/java/javaZc.md'),
         },
         {
             path: '/javaZj',
             name: 'javaZj',
-            component: () => import('@/components/java/javaZj.md'),
+            component: () => import('@/page/java/javaZj.md'),
         },
         {
             path: '/springCloud',
             name: 'springCloud',
-            component: () => import('@/components/java/springCloud.md'),
+            component: () => import('@/page/java/springCloud.md'),
         },
         {
             path: '/vue',
             name: 'vue',
-            component: () => import('@/components/vue/vue.md'),
+            component: () => import('@/page/vue/vue.md'),
         },
         {
             path: '/vueCli3',
             name: 'vueCli3',
-            component: () => import('@/components/vue/vueCli3.md'),
+            component: () => import('@/page/vue/vueCli3.md'),
         },
         {
             path: '/vueRouter',
             name: 'vueRouter',
-            component: () => import('@/components/vue/vueRouter.md'),
+            component: () => import('@/page/vue/vueRouter.md'),
         },
         {
             path: '/vue',
             name: 'vue',
-            component: () => import('@/components/vue/vue.md'),
+            component: () => import('@/page/vue/vue.md'),
         },
         {
             path: '/react',
             name: 'react',
-            component: () => import('@/components/react/react.md'),
+            component: () => import('@/page/react/react.md'),
         },
         {
             path: '/webpack',
             name: 'webpack',
-            component: () => import('@/components/webpack/webpack.md'),
+            component: () => import('@/page/webpack/webpack.md'),
         },
+        {
+            path: '/three1',
+            name: 'three1',
+            component: () => import('@/page/three/three1.vue')
+        }
     ],
 });
 //# sourceMappingURL=router.js.map
