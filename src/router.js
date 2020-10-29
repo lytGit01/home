@@ -30,6 +30,16 @@ export default new Router({
             component: () => import('@/page/js/undefined.md'),
         },
         {
+            path: '/mst',
+            name: 'mst',
+            component: () => import('@/page/js/面试题.md'),
+        },
+        {
+            path: '/jsmst',
+            name: 'jsmst',
+            component: () => import('@/page/js/js面试题.md'),
+        },
+        {
             path: '/axios',
             name: 'axios',
             component: () => import('@/page/js/axios.md'),

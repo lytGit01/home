@@ -99,6 +99,14 @@ export default class Home extends Vue {
                         link: '/axios',
                         title: '处理重复请求',
                     },
+                    {
+                      link: '/mst',
+                      title: '面试题',
+                    },
+                  {
+                    link: '/jsmst',
+                    title: 'js面试题',
+                  },
                 ],
             },
             {
@@ -154,11 +162,11 @@ export default class Home extends Vue {
                 ],
             },
           {
-            title: 'three',
+            title: '微信小程序',
             options: [
               {
-                link: '/three1',
-                title: 'three1',
+                link: '/mpvue',
+                title: 'react',
               },
             ],
           },
