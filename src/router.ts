@@ -107,6 +107,11 @@ export default new Router({
         component: () => import('@/page/vue/vueRouter.md'),
     },
     {
+      path: '/vue3',
+      name: 'vue3',
+      component: () => import('@/page/vue/vue3.md'),
+    },
+    {
         path: '/vue',
         name: 'vue',
         component: () => import('@/page/vue/vue.md'),
@@ -124,7 +129,7 @@ export default new Router({
     {
       path: '/three1',
       name: 'three1',
-      component: () => import('@/page/three/three1.vue')
-    }
+      component: () => import('@/page/three/three1.vue'),
+    },
 ],
 });

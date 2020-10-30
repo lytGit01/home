@@ -150,6 +150,10 @@ export default class Home extends Vue {
                       link: '/vueRouter',
                       title: 'vueRouter源码分析',
                     },
+                    {
+                      link: '/vue3',
+                      title: 'vue3模板指令分析',
+                    },
                 ],
             },
             {
