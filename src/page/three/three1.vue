@@ -14,18 +14,17 @@
        data: () => {
            return {
               page: 1,
-               list: [1,2,3],
+               list: [1, 2, 3],
                s: '',
-               val: 66
-           }
-       },
+               val: 66,
+           };
+        },
        components: {ChildComponent},
-       mounted () {
-           console.log(this.$refs['lists'])
-           // this.createThree();
+       mounted() {
+           this.createThree();
        },
        methods: {
-           fn () {
+           fn() {
                const n = this.val * 1;
                const listMap = [
                    {1: 'a'},
@@ -53,17 +52,17 @@
                    {23: 'w'},
                    {24: 's'},
                    {25: 'y'},
-                   {26: 'z'}
+                   {26: 'z'},
                ];
                this.s = '';
-               let m = new Map();
+               const m = new Map();
                listMap.forEach((obj, index) => {
                    const i = index + 1;
                    m.set(i, obj[i]);
-               })
+               });
                if (n <= 26) {
                    this.s = m.get(n);
-               } else if (n > 0 & n > 26) {
+               } else { //  if (n > 0 & n > 26)
                    const a = n % 26;
                    const b = (n / 26).toFixed();
                    let i = 0;
@@ -83,7 +82,7 @@
                *  接下来的两个参数是近截面（near）和远截面（far）。 当物体某些部分比摄像机的远截面远或者比近截面近的时候，该这些部分将不会被渲染到场景中。
                *  或许现在你不用担心这个值的影响，但未来为了获得更好的渲染性能，你将可以在你的应用程序里去设置它。
                * */
-               const camera = new THREE.PerspectiveCamera( 55, Box.clientWidth/Box.clientHeight, 0.1, 1000 );
+               const camera = new THREE.PerspectiveCamera( 55, Box.clientWidth / Box.clientHeight, 0.1, 1000 );
 
                const renderer = new THREE.WebGLRenderer();
                renderer.setSize( Box.clientWidth, Box.clientHeight );
@@ -93,22 +92,17 @@
                const material = new THREE.MeshBasicMaterial( { color: '#eee' } );
                const cube = new THREE.Mesh( geometry, material );
                scene.add( cube );
-
                camera.position.z = 5;
-
-               let animate = function () {
+               const animate = () => {
                    requestAnimationFrame( animate );
-
                    cube.rotation.x += 0.01;
                    cube.rotation.y += 0.01;
-
                    renderer.render( scene, camera );
                };
-
                animate();
-           }
+           },
        },
-   }
+   };
 </script>
 <style scoped lang="scss">
   #canvasBox, canvas { width: 100%; height: 100% }

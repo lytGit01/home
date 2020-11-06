@@ -120,6 +120,16 @@ export default new Router({
             component: () => import('@/page/react/react.md'),
         },
         {
+            path: '/redux+ts',
+            name: 'redux+ts',
+            component: () => import('@/page/react/redux+ts.md'),
+        },
+        {
+            path: '/react-redux',
+            name: 'react-redux',
+            component: () => import('@/page/react/react-redux.md'),
+        },
+        {
             path: '/webpack',
             name: 'webpack',
             component: () => import('@/page/webpack/webpack.md'),
