@@ -129,6 +129,10 @@ let Home = class Home extends Vue {
                         link: '/redux+ts',
                         title: 'redux+ts',
                     },
+                    {
+                        link: '/react-redux',
+                        title: 'react-redux',
+                    },
                 ],
             },
             {
@@ -136,7 +140,16 @@ let Home = class Home extends Vue {
                 options: [
                     {
                         link: '/mpvue',
-                        title: 'mpvue',
+                        title: 'react',
+                    },
+                ],
+            },
+            {
+                title: 'three',
+                options: [
+                    {
+                        link: '/three1',
+                        title: 'three1',
                     },
                 ],
             },

@@ -103,6 +103,7 @@ export default class Home extends Vue {
 .links {
   position: absolute;
   right: .2rem;
+  list-style: none;
   a{
     font-size: 0.2rem !important;
     font-weight: 600;
