@@ -58,6 +58,14 @@ export default class Home extends Vue {
                         link: '/c3',
                         title: 'css3',
                     },
+                     {
+                        link: '/caseInterview',
+                        title: 'caseInterview',
+                    },
+                    {
+                        link: '/css',
+                        title: 'css',
+                    },
                 ],
             },
             {
@@ -76,7 +84,7 @@ export default class Home extends Vue {
                         title: '数组',
                     },
                     {
-                        link: '/object',
+                        link: '/extend',
                         title: '对象',
                     },
                     {
@@ -103,10 +111,14 @@ export default class Home extends Vue {
                       link: '/mst',
                       title: '面试题',
                     },
-                  {
-                    link: '/jsmst',
-                    title: 'js面试题',
-                  },
+                    {
+                      link: '/jsmst',
+                      title: 'js面试题',
+                    },
+                     {
+                      link: '/GC',
+                      title: 'GC',
+                    },
                 ],
             },
             {
@@ -129,6 +141,10 @@ export default class Home extends Vue {
             {
                 title: 'webpack',
                 options: [
+                    {
+                        link: '/makeDown',
+                        title: 'makeDown',
+                    },
                     {
                         link: '/webpack',
                         title: 'webpack',

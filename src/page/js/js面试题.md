@@ -1,4 +1,4 @@
-### 手写Promise
+#### 1. 手写Promise、介绍Promise的特性
 ```js
 // 简易版
 function myPromis(callback) {
@@ -43,4 +43,230 @@ console.log(1);
 res(2);
 });
 p.then((x) => {console.log(x)})
+```
+
+#### 2. 闭包
+```js
+function bibao() {
+    cosnt a = 6;
+    return function cab() {
+        const b = 6;
+        return a + b;
+    }
+}
+bibao();
+//  闭包的出现是为了解决
+/*
+* 1. 成为局部变量，作为私有成员，防止全局变量的污染
+* 2. 能够访问到作用域的变量
+* 3. 长期存储在内中，供日后使用
+*/
+//  闭包的出现导致的问题
+/*
+* 1. 占用内存，无法被垃圾回收
+* 2. 外部引用时，闭包的层级决定了作用域链的长度
+*/
+// 闭包解决循环后无法获取循环中的值
+function fn1(num) {
+    return function () {
+        console.log(num);
+    }
+}
+for (var i = 1; i<=3; i++) {
+    document.getElementById('id' + i).onclick = fn1(i)
+}
+```
+
+#### 4. GC(垃圾回收机制)
+[GC路由](http://localhost:8080/null)
+
+#### 5. 作用域 及 作用域链
+```js
+// 作用域
+/*
+* 1. es5 之前只有 全局作用域 和 函数作用域
+* 2. 作用域内的变量函数是私有的，外部不能直接访问 (可使用闭包或实例调用)
+* 3. es6 后 引入了 let const 可以声明块级作用域 {} 内的用 let const 定义变量 外部不能调用
+*/
+// 作用域链
+/*
+* 1. 在作用域中没有找到所需要的变量或函数会一直向上查找直到头位置
+* 2. 
+* 3. 
+*/
+function Parent() {
+    let surname = 'L';
+    let moeny = '20,000,000';
+    let jn = function () {
+        this.eat = '吃';
+        console.log(surname);
+    }
+}
+```
+#### 6. 原型 与 原型链
+```js
+// 构造函数
+function Parent() {
+    this.surnamr = 'L';
+}
+// 原型
+Parent.prototype.eat = '吃';
+Parent.prototype.jn = function () {
+    console.log(surname);
+}
+// 实例
+const P = new Parent();
+// 每个实例对象都有一个__proto__ 指向原型
+p.__proto__ === Parent.prototype // true
+// 每个原型上都有一个 constructor 指向构造函数 
+Parent.prototype.constructor === Parent // true
+p.__proto__.constructor === Parent // true
+p.__proto__.constructor === Parent.prototype.constructor // true
+// 顺便学习一个ES5的方法,可以获得对象的原型
+console.log(Object.getPrototypeOf(person) ===  Parent.prototype) // true
+```
+
+#### 7. 继承
+|名称|特点|方法|
+|---|---|---|
+|构造函数继承|1.只能继承构造函数的方法和属性无法继承原型|call(), apply()指向继承的构造函数|
+|原型链函数继承|1. 实例的引用相同</br> 2. 子类无法向父类传参|child.prototype = new Parent()|
+|组合式继承| 1. 构造函数的方法属性会调用两次，消耗内存| 构造函数和原型链相结合 |
+|寄生式继承| 1. 解决实例的引用相同的问题</br> 2. 无法继承构造函数中的方法属性| 1.创建一个新函数</br> 2. 原型 = 父类.prototype </br> 3. 子类.prototype = new 新函数()|
+|寄生组合式继承| 最终版，解决以上问题|构造函数继承 + 寄生式继承 |
+
+#### 8. 高阶函数
+```js
+function fn1 () {
+    console.log(1);
+}
+function fn2 (f) {
+    f()
+}
+function fn3 () {
+    return function () {
+        console.log(2)
+    }
+}
+```
+
+#### 9. 函数柯里化 实现add(1)(2)(3)
+```js
+```
+#### 10. 节流防抖
+```js
+```
+#### 11. 实现链式调用
+```js
+```
+#### 12. 手写发布订阅
+```js
+```
+
+#### 13. 类数组和数组的区别, 类数组如何转换成数组
+```js
+```
+
+#### 14. call、apply、bind (思考箭头函数能否使用)
+#### call
+```js
+Function.prototype.calls = function () {
+    const that = arguments[0] || window;
+    that.fn = this; // this === f1, that === f2 // 用f2调用f1 
+    const args = [];
+    if (arguments.length > 1) {   
+        for(let i = 1; i < arguments.length; i++) {
+            args.push('arguments[' + i + ']');   
+        }
+        eval('that.fn(' + args + ')')
+    } else {
+        that.fn();
+    }
+    
+    delete that.fn;
+}
+function f1(num=45) {
+    console.log(this)
+    this.a = num;
+}
+function f2() {
+    f1.calls(this, 85)      
+}
+console.log(new f2().a) // 85
+```
+#### apply 
+```js
+/*
+* call appply 是利用js的this指向，谁调用指向谁来实现的 只是传参类型不同 感觉 apply是call 的一款升级版本
+*/
+Function.prototype.applys = function () {
+    const that = arguments[0] || window;
+    that.fn = this; // this === f1, that === f2 // 用f2调用f1 
+    const args = [];
+    if (!!arguments[1] && Array.isArray(arguments[1])) {   
+        for(let i = 0; i < arguments[1].length; i++) {
+            args.push('arguments[1][' + i + ']');   
+        }
+        eval('that.fn(' + args + ')')
+    } else {
+        that.fn();
+    }
+    delete that.fn;
+}
+function f1(num=45) {
+    this.a = num;
+}
+function f2() {
+    f1.applys(this,[85])      
+}
+console.log(new f2().a) // 85
+```
+#### bind 
+```js
+// 运用到的知识点
+/*
+* 1. call
+* 2. apply
+* 3. 寄生式继承
+* 4. 函数柯里化
+* 5. 闭包
+*/
+Function.prototype.binds = function (otherThis) {
+    if (typeof this !== 'function') {
+        throw new TypeError('不是函数')
+    }
+    var that = this,
+    args = Array.prototype.slice.call(arguments, 1), // 获取预定参数
+    newFn = function () {
+        // 合并参数，运用闭包获取预定参数
+        args.push.apply(args, arguments);
+        console.log(this);
+        return that.apply(
+            that.prototype.isPrototypeOf(this) ? this : otherThis, // 判断实例是否指向自己（是否new)
+            args
+            )
+    };
+    // 寄生式继承
+    if (this.prototype) {
+        const fn = function () {};
+        fn.prototype = this.prototype;
+        newFn.prototype = new fn();
+    }
+
+    return newFn;
+}
+function f1(num,num1 = 0) {
+    this.a = num;
+    this.b = num1;
+    console.log(this.c)
+}
+f1.prototype.toS = function() { 
+    return this.a + ',' + this.b; 
+};
+const f2 = {
+        c: 0
+}
+let b = f1.binds(f2, 8);
+const c = new b(2);
+console.log(c.toS()); // 8.2
 ```

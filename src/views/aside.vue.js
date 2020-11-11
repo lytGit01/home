@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Component, Vue } from 'vue-property-decorator';
 let Home = class Home extends Vue {
     constructor() {
@@ -19,6 +19,14 @@ let Home = class Home extends Vue {
                     {
                         link: '/c3',
                         title: 'css3',
+                    },
+                    {
+                        link: '/caseInterview',
+                        title: 'caseInterview',
+                    },
+                    {
+                        link: '/css',
+                        title: 'css',
                     },
                 ],
             },
@@ -160,7 +168,7 @@ let Home = class Home extends Vue {
         this.$emit('closeAside');
     }
 };
-Home = tslib_1.__decorate([
+Home = __decorate([
     Component({
         components: {},
     })

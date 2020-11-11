@@ -14,8 +14,8 @@
     <aside class="aside" :class="{'asideShow': asideChange}">
       <asd @closeAside="asideHide" />
     </aside>
-    <div class="main" @click='asideHide'>
-      <router-view/>
+    <div id="contPar" class="main" @click='asideHide'>
+        <router-view/>
     </div>
   </div>
 </template>
@@ -120,21 +120,21 @@ export default class Home extends Vue {
   overflow: auto;
   border-right: 1px solid #ccc;
   background: #fff;
-}
-.main {
-  width: 100%;
+  z-index: 45655456;
 }
 .content {
   width: 100%;
   height: 100%;
   font-size: .14rem;
   overflow: auto;
-  padding: .96rem .3rem .4rem .4rem;
+  padding: .4rem .3rem .8rem .4rem;
 }
 .main {
   width: 100%;
   height: 100%;
   padding-left: 3rem;
+  position: absolute;
+  top: .56rem;
 }
 .menShow {
   display: none;

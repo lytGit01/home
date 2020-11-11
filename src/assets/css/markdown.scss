@@ -195,6 +195,9 @@ table th {
 table td:first-child, table th:first-child {
     border-left: none;
 }
+table {
+    margin: 20px 0;
+}
 
 table th:first-child {
     -moz-border-radius: 6px 0 0 0;
@@ -228,7 +231,8 @@ a {
 }
 
 blockquote {
-    border-left: 6px solid #d8d8d8;
-    padding: 2px;
-    margin: 2px 2px 0 8px;
+    border-left: 0.06rem solid #d8d8d8;
+    padding: .02rem;
+    padding-left: .14rem;
+    margin: .02rem .02rem 0 .08rem;
 }

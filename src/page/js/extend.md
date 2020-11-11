@@ -1,4 +1,4 @@
-## 借助原型继承
+## 构造函数继承
 ```js
 function Parent1(){
     this.name = "parent1"
@@ -49,7 +49,7 @@ console.log(child1)
 // 3: 引用类型属性会被所有实例共享
 ```
 
-## 构造函数继承
+## 组合式函数继承
 ```js
 function Person(name){  
   this.name=name;  
@@ -72,29 +72,12 @@ var s1=new Student();
 s1.countries.push("india");  
 console.log(s1.countries);//["America", "China", "Canada", "india"]   
 var s2=new Student();  
-console.log(s2.countries);//["America", "China", "Canada", "india"]  
+console.log(s2.countries);//["America", "China", "Canada"]  
 // 优点
 // 1. 创建子类型的实例时不能向超类型的构造函数传递参数
 // 2. 解决原型链继承 引用类属性被所有实例共享
 // 缺点
 // 1. 方法都在构造函数中写，每次创建新的实例都会重建一个方法
-```
-## 组合式继承 (结合构造函数和原型链继承)
-```js
-function Parent2(){
-    this.name = "parent2";
-    this.play = [1,2,3];
-}
-function Child2(){
-    this.type = "child2";
-    Parent2.apply(this, [])
-}
-Child2.prototype = new Parent2();
-Child2.prototype.constructor = Child2
-// 缺点
-// 原型链的会重写父构造函数的属性， 并且还会被实例给覆盖掉（先找实例后找原型） 浪费内存
-
-k9/ 实例属性会重复2遍 冗余代码
 ```
 ## 寄生组合式
 ```js
@@ -108,5 +91,76 @@ k9/ 实例属性会重复2遍 冗余代码
    }
    function F() {}
    F.propoty = Parent2.propoty
-   Child2.propoty = new F()
+   Child2.propoty = new F() // 如果不new的，引用相同
    Child2.prototype.constructor = Child2
+``` 
+
+#### es6继承
+```js
+    const fn1 = {
+        eat(){
+            return 'egg';
+        }
+    }
+    const fn2 = {
+        eat(){
+            return '煎饼';
+        }
+    }
+    // 1: Object.create()
+    var today = Object.create(fn1) // 继承fn1的方法
+    Object.getprototypeOf(today)  // 获取指向
+    Object.setprototypeOf(today,fn2) //设置指向
+    2:  __proto__
+    const newObj = {
+        __proto__:dinner, // 继承fn1的方法 === Object.create(fn1)
+        eat(){
+            return '煎饼';
+        }
+    }
+    console.log(newObj.eat()) // 会先找本身 再找原型
+    // 解决 方法
+    eat(){
+            return super.eat(); // 反会父类的方法
+        }
+    // 3 class main extends presonle{}
+   class preson {
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        say () {
+            return `我叫${this.name}今年${this.age}`
+        }
+    }
+    class man extends preson{
+        constructor(name,age){
+            super(name,age)
+        }
+    }
+    let mans = new man('李云涛','21')
+
+    
+
+```
+## class 构造函数
+```javascript
+    //es6构造函数
+    class preson {
+        constructor('name','age'){
+            // 不写 也会隐式产生
+            // 默认会接收实参
+            this.like = ['香蕉'];
+        }
+        set fn1 (val) {
+            // 设置
+            return this.like.push(val)
+        }
+        get fn2 () {
+            // 获取
+            return this.like;
+        }
+        static look(){}// 在某方法前加 无法调用 变成静态 只能 preson.look()调用
+    }
+    var obj = new preson('lt',21)
+```

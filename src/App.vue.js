@@ -1,10 +1,17 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Component, Vue } from 'vue-property-decorator';
+// @ts-ignore
+// import ScrollBar from 'scroll.js'
 import Asd from './views/aside.vue'; // @ is an alias to /src
 let Home = class Home extends Vue {
     constructor() {
         super();
         this.asideChange = false;
+        // @ts-ignore
+        //  this.scrollClass = new ScrollBar('contPar', 'contBox', {
+        //   opacity: 1,
+        //   background: 'red'
+        // });
     }
     // methods
     asideShow() {
@@ -14,7 +21,7 @@ let Home = class Home extends Vue {
         this.asideChange = false;
     }
 };
-Home = tslib_1.__decorate([
+Home = __decorate([
     Component({
         components: {
             Asd,

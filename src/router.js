@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import H5 from '@/page/html/h5.md';
 Vue.use(Router);
 export default new Router({
-    mode: 'history',
     routes: [
         {
             path: '/',
@@ -18,6 +17,16 @@ export default new Router({
             path: '/c3',
             name: 'css3',
             component: () => import('@/page/css/css3.md'),
+        },
+        {
+            path: '/caseInterview',
+            name: 'caseInterview',
+            component: () => import('@/page/css/caseInterview.md'),
+        },
+        {
+            path: '/css',
+            name: 'css',
+            component: () => import('@/page/css/css.vue'),
         },
         {
             path: '/null',
@@ -50,9 +59,9 @@ export default new Router({
             component: () => import('@/page/js/array.md'),
         },
         {
-            path: '/object',
-            name: 'object',
-            component: () => import('@/page/js/object.md'),
+            path: '/extend',
+            name: 'extend',
+            component: () => import('@/page/js/extend.md'),
         },
         {
             path: '/string',
@@ -73,6 +82,11 @@ export default new Router({
             path: '/map',
             name: 'newMap',
             component: () => import('@/page/js/newMap.md'),
+        },
+        {
+            path: '/GC',
+            name: 'GC',
+            component: () => import('@/page/js/GC.md'),
         },
         {
             path: '/javaZc',
@@ -123,6 +137,11 @@ export default new Router({
             path: '/redux+ts',
             name: 'redux+ts',
             component: () => import('@/page/react/redux+ts.md'),
+        },
+        {
+            path: '/makeDown',
+            name: 'makeDown',
+            component: () => import('@/page/webpack/makeDown.md'),
         },
         {
             path: '/webpack',
