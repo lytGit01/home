@@ -1,3 +1,4 @@
+
 <template>
   <div id="canvasBox">
     <div id="red" v-bind="{ id: 'blue' }"></div>

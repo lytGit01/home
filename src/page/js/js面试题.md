@@ -270,3 +270,79 @@ let b = f1.binds(f2, 8);
 const c = new b(2);
 console.log(c.toS()); // 8.2
 ```
+
+
+#### 15. 词法作用域 （js采用静态作用域）
+```js
+var a = 1;
+function a() {
+    console.log(a)
+}
+function b() {
+    var a = 2;
+    a()
+}
+b() // 1
+```
+#### 16. 执行顺序
+#### 17. 执行上下文栈、变量对象、执行过程
+```js
+// 执行上下文有三个重要的属性
+/*
+* 1. 变量对象 vo(引擎变量)不可被访问  Ao(active object) 函数变量 进入上下文时才会激活
+* 2. 作用域链
+* 3. this
+*/
+
+
+// 例子
+function fn (a) {
+    var b = 2;
+    function c() {};
+    var d = function () {};
+    b = 3
+}
+fn(1)
+// 进入执行上下文后
+AO = {
+    arguments: {
+        0: 1,
+        length: 1
+    },
+    a: 1,
+    b: undefined,
+    c: reference to function() {},
+    d: undefined
+}
+// 代码执行
+AO = {
+    arguments: {
+        0: 1,
+        length: 1
+    },
+    a: 1,
+    b: 3,
+    c: reference to function c() {},
+    d: reference to FunctionExpression
+}
+```
+
+#### 18. 作用域链 （在函数定义时就决定了）
+```js
+// [[scope]]每个函数都有一个，可以将其看作是父变量的链接层
+function foo() {
+    function bar(){
+
+    }
+}
+// 定义时
+foo[[scope]]: {
+    gobalContext.vo
+}
+bar[[scope]]: {
+    f00Context.Ao
+    gobalContext.vo
+}
+// 激活时
+[[Scope]] = Ao.concat([[scope]]);
+```

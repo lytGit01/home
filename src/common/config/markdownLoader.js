@@ -29,7 +29,7 @@ const md = require('markdown-it')({
                     hljs.highlight(lang, str, true).value +
                     '</code></pre>';
             } catch (__) {}
-        }
+
 
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
     }
@@ -48,8 +48,7 @@ const md = require('markdown-it')({
   })
   // 定义自定义的块容器
   .use(containers)
-
-const cache = LRU({ max: 1000 })
+const cache = new LRU({ max: 1000 })
 
 module.exports = function (src) {
   const isProd = process.env.NODE_ENV === 'production'
