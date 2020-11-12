@@ -7,7 +7,7 @@
       </h3>
       <ul class="links">
         <li>
-          <a href="https://github.com/lytGit01">GitHub</a>
+          <a href="http://lts01.xyz">博客</a> / <a href="https://github.com/lytGit01">GitHub</a>
         </li>
       </ul>
     </header>
@@ -46,7 +46,7 @@ export default class Home extends Vue {
  }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @media only screen and (max-width: 768px) {
     .aside {
        left: -3rem !important;
@@ -58,6 +58,9 @@ export default class Home extends Vue {
     .menShow {
       display: block !important;
     }
+    .hljs-lang {
+      display: none;
+    }
 }
 @media only screen and (max-width: 1100px) and (min-width: 769px){
     .aside {
@@ -65,7 +68,10 @@ export default class Home extends Vue {
     }
     .main {
       padding-left: 2.5rem !important;
-       }
+    }
+    .hljs-lang {
+      display: none;
+    }
 }
 .asideShow {
   left: 0 !important;
@@ -135,6 +141,11 @@ export default class Home extends Vue {
   padding-left: 3rem;
   position: absolute;
   top: .56rem;
+}
+.hljs-lang {
+  position: absolute;
+  top: .05rem;
+  right: .1rem;
 }
 .menShow {
   display: none;

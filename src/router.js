@@ -19,11 +19,6 @@ export default new Router({
             component: () => import('@/page/css/css3.md'),
         },
         {
-            path: '/caseInterview',
-            name: 'caseInterview',
-            component: () => import('@/page/css/caseInterview.md'),
-        },
-        {
             path: '/css',
             name: 'css',
             component: () => import('@/page/css/css.vue'),
@@ -137,11 +132,6 @@ export default new Router({
             path: '/redux+ts',
             name: 'redux+ts',
             component: () => import('@/page/react/redux+ts.md'),
-        },
-        {
-            path: '/makeDown',
-            name: 'makeDown',
-            component: () => import('@/page/webpack/makeDown.md'),
         },
         {
             path: '/webpack',

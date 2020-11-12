@@ -78,7 +78,7 @@ for (var i = 1; i<=3; i++) {
 ```
 
 #### 4. GC(垃圾回收机制)
-[GC路由](http://localhost:8080/null)
+[GC路由](https://hsb11.cn/#/GC)
 
 #### 5. 作用域 及 作用域链
 ```js
@@ -127,6 +127,7 @@ console.log(Object.getPrototypeOf(person) ===  Parent.prototype) // true
 ```
 
 #### 7. 继承
+[继承](https://hsb11.cn/#/extend)
 |名称|特点|方法|
 |---|---|---|
 |构造函数继承|1.只能继承构造函数的方法和属性无法继承原型|call(), apply()指向继承的构造函数|
@@ -152,12 +153,93 @@ function fn3 () {
 
 #### 9. 函数柯里化 实现add(1)(2)(3)
 ```js
+// 函数柯里化 是将接收多个参数的函数转换成，接收一个参数，并能够接收剩下参数和返回值的新函数
+function add (a) {
+    return function (b) {
+        return function () {
+            console.log(a+b+c);
+            return a + b + c;
+        }   
+    }
+}
+console.log(add(1)(2)(3))
 ```
-#### 10. 节流防抖
+#### 10. 防抖节流
 ```js
+// 防抖
+/*
+* 1. 解决重复点击按钮时，在规定时间内，只执行最后一次
+* 2. input输入时，只需要在输入完成后最后一次执行
+* 3. 满足在规定时间内执行第一次
+*/
+function fd(fn, wait = 500, immediate = false) {
+    let time;
+    let context, arg;
+    return function () {
+        context = this;
+        arg = arguments;
+        if (time) clearTimeout(time);
+        if (immediate) {
+            const flag = !time;
+            time = setTimeout(function() {
+                time = null;
+            }, wait);
+            if (flag) fn.apply(contexts,arg);
+        } else {
+            time = setTimeout(function() {
+                fn.apply(context, arg);
+            }, wait)
+        }
+    }
+}
+// 节流
+/*
+* 1. 监控浏览器变化或则某个视图拉伸变化时等类似问题时，resize会被多次触发 
+*/
+// 利用时间实现
+function jl(fn, wait = 500, immediate = false) {
+    let brforeTime = 0;
+    return function () {
+        const nowTime = new Date().getTime(); // +new Date()
+        if(nowTime - brforeTime > wait) {
+            fn.apply(this, arguments);
+            brforeTime = nowTime;
+        }
+    }
+}
+// 利用定时器实现
+function jl1(fn, wait = 500, immediate = false) {
+    let time; 
+    let context, arg;
+        return function () {
+            context = this;
+            arg = arguments;
+            if (!time) {
+                time = setTimeout(function () {
+                    time = null;
+                    fn.apply(this, arguments);
+                }, wait)
+            }
+    }
+}
 ```
-#### 11. 实现链式调用
+#### 11. 实现链式调用 (核心在于调用完后将自生实例返回)
 ```js
+function f() {
+    console.log(0)
+}
+
+f.prototype.met = function () {
+    console.log(1)
+    console.log(this);
+    return this;
+}
+f.prototype.met1 = function () {
+    console.log(2)
+    console.log(this);
+    return this;
+}
+new f().met().met1();
 ```
 #### 12. 手写发布订阅
 ```js

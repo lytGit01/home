@@ -5,6 +5,7 @@ import store from './store';
 import ElementUI from 'element-ui';
 import './static/index';
 import './assets/css/index.scss';
+import './utils/gobalMixin';
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 new Vue({

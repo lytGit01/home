@@ -124,6 +124,10 @@ module.exports = {
             }
           ],
         },
+        // {
+        //   test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        //   loader: 'file-loader'
+        // },
     );
   },
   // 第三方插件配置

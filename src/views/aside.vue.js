@@ -46,8 +46,8 @@ let Home = class Home extends Vue {
                         title: '数组',
                     },
                     {
-                        link: '/object',
-                        title: '对象',
+                        link: '/extend',
+                        title: 'extend',
                     },
                     {
                         link: '/string',
@@ -77,6 +77,10 @@ let Home = class Home extends Vue {
                         link: '/jsmst',
                         title: 'js面试题',
                     },
+                    {
+                        link: '/GC',
+                        title: 'GC',
+                    },
                 ],
             },
             {
@@ -99,6 +103,10 @@ let Home = class Home extends Vue {
             {
                 title: 'webpack',
                 options: [
+                    {
+                        link: '/makeDown',
+                        title: 'makeDown',
+                    },
                     {
                         link: '/webpack',
                         title: 'webpack',

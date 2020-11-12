@@ -85,7 +85,7 @@ export default class Home extends Vue {
                     },
                     {
                         link: '/extend',
-                        title: '对象',
+                        title: 'extend',
                     },
                     {
                         link: '/string',

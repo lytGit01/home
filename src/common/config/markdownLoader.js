@@ -22,16 +22,20 @@ const md = require('markdown-it')({
         // 添加这两行才能正确显示 <>
         str = str.replace(/&lt;/g, "<");
         str = str.replace(/&gt;/g, ">");
-
         if (lang && hljs.getLanguage(lang)) {
             try {
-                return '<pre class="hljs"><code>' +
+                return '<pre class="hljs">' +
+                    `<span class="hljs-lang" @click="ctrlC"><em>${lang}</em>/复制代码</span>` +
+                    '<code>' +
                     hljs.highlight(lang, str, true).value +
                     '</code></pre>';
             } catch (__) {}
+        }
 
-
-        return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+        return '<pre class="hljs">' +
+            '<span class="hljs-lang" @click="ctrlC">复制代码</span>' +
+            '<code>' + md.utils.escapeHtml(str) + '</code>' +
+            '</pre>';
     }
 })
   // 使用 emoji 插件渲染 emoji
@@ -47,28 +51,29 @@ const md = require('markdown-it')({
     includeLevel: [2, 3]
   })
   // 定义自定义的块容器
-  .use(containers)
-const cache = new LRU({ max: 1000 })
+  .use(containers);
+
+const cache = new LRU({ max: 1000 });
 
 module.exports = function (src) {
-  const isProd = process.env.NODE_ENV === 'production'
+  const isProd = process.env.NODE_ENV === 'production';
 
-  const file = this.resourcePath
-  const key = hash(file + src)
-  const cached = cache.get(key)
+  const file = this.resourcePath;
+  const key = hash(file + src);
+  const cached = cache.get(key);
 
   // 重新模式下构建时使用缓存以提高性能
   if (cached && (isProd || /\?vue/.test(this.resourceQuery))) {
-    return cached
+    return cached;
   }
 
-  const html = md.render(src)
+  const html = md.render(src);
 
   const res = (
     `<template>\n` +
     `<div class="content">${html}</div>\n` +
     `</template>\n`
   )
-  cache.set(key, res)
-  return res
+  cache.set(key, res);
+  return res;
 }
