@@ -2,9 +2,7 @@
   <div id="app">
     <header class="head">
       <i class='el-icon-menu menShow' @click='asideShow'></i>
-      <h3 class="title">
-        云涛-个人笔记
-      </h3>
+      <h3 class="title">云涛-个人笔记</h3>
       <ul class="links">
         <li>
           <a href="http://lts01.xyz">博客</a> / <a href="https://github.com/lytGit01">GitHub</a>
@@ -14,7 +12,7 @@
     <aside class="aside" :class="{'asideShow': asideChange}">
       <asd @closeAside="asideHide" />
     </aside>
-    <div id="contPar" class="main" @click='asideHide'>
+    <div id="contPar" class="main" :class="{'mainShow': asideChange}" @click='asideHide'>
         <router-view/>
     </div>
   </div>
@@ -61,6 +59,10 @@ export default class Home extends Vue {
     .hljs-lang {
       display: none;
     }
+    .asideShow {
+      left: 0 !important;
+      transition: left .3s;
+    }
 }
 @media only screen and (max-width: 1100px) and (min-width: 769px){
     .aside {
@@ -72,10 +74,25 @@ export default class Home extends Vue {
     .hljs-lang {
       display: none;
     }
+    .asideShow {
+      left: 0 !important;
+      transition: left .3s;
+    }
 }
-.asideShow {
-  left: 0 !important;
-  transition: left .3s;
+@media only screen and (min-width: 1100px) {
+  .aside {
+    left: 0 !important;
+    transition: left .3s;
+  }
+
+  .asideShow {
+    left: -3rem !important;
+    transition: left .3s;
+  }
+  .mainShow {
+    padding-left: 0rem !important;
+    transition: padding-left .3s;
+  }
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -103,7 +120,6 @@ export default class Home extends Vue {
   .title {
     font-size: 0.2rem;
     font-weight: 800;
-    line-height: 0;
   }
 }
 .links {
@@ -141,11 +157,16 @@ export default class Home extends Vue {
   padding-left: 3rem;
   position: absolute;
   top: .56rem;
+  transition: padding-left .3s;
 }
 .hljs-lang {
   position: absolute;
   top: .05rem;
   right: .1rem;
+  font-size: .14rem;
+  em {
+    font-style:italic !important;
+  }
 }
 .menShow {
   display: none;
