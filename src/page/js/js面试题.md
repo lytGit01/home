@@ -247,6 +247,12 @@ new f().met().met1();
 
 #### 13. 类数组和数组的区别, 类数组如何转换成数组
 ```js
+// 为类数组只有长度没有Array的属性方法和原型上的属性函数
+const list = document.getElementsByTagName('li');
+let a = [];
+[].push.apply(a, list);
+let b = [...list]; // 解构可以代替apply
+let c = Array.from(list);
 ```
 
 #### 14. call、apply、bind (思考箭头函数能否使用)
@@ -276,7 +282,7 @@ function f2() {
 }
 console.log(new f2().a) // 85
 ```
-#### apply 
+#### apply (可用数组结构代替部分特性)
 ```js
 /*
 * call appply 是利用js的this指向，谁调用指向谁来实现的 只是传参类型不同 感觉 apply是call 的一款升级版本
@@ -428,3 +434,64 @@ bar[[scope]]: {
 // 激活时
 [[Scope]] = Ao.concat([[scope]]);
 ```
+
+#### 19. 深拷贝浅拷贝
+```js
+// 如何判断深拷贝还是浅拷贝呢
+// 对象 a 拷贝 b, b中的属性变化 a也跟着变化就是浅拷贝,否则则是深拷贝 (涉及到堆栈,基本数据和复杂数据)
+// 例子
+const a = {
+    name: 'lyt',
+    sex: ' nan',
+    job: {
+        zjs: {
+            yaer: 3,
+            xm: {
+            a: 5
+            }
+        }
+    }
+}
+const b = {
+    name: 'lq',
+    sex: ' nv',
+    job: {
+        yk: {
+            yaer: 3,
+            xm: {
+            a: 4
+            }
+        }
+    }
+}
+// 深拷贝方法
+function deepClone1(obj) {
+//判断拷贝的要进行深拷贝的是数组还是对象，是数组的话进行数组拷贝，对象的话进行对象拷贝
+let objClone = Array.isArray(obj) ? [] : {};
+//进行深拷贝的不能为空，并且是对象或者是
+console.log(obj);
+if (obj && typeof obj === "object") {
+    for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+        if (obj[key] && typeof obj[key] === "object") {
+        objClone[key] = deepClone1(obj[key]);
+        } else {
+        objClone[key] = obj[key];
+        }
+    }
+    }
+}
+return objClone;
+}
+      // console.log(b.__proto__);
+      Object.assign(a, b); // 浅拷贝 （只实现一层深拷贝）
+      const c = JSON.parse(JSON.stringify(b));  // 浅拷贝
+      const d = deepClone1(b); // 深拷贝
+      b.job.zjs = null;
+      console.log(a.job); // job.{yk: {}, zjs: null}
+      console.log(c.job); // job.{yk: {}}
+      console.log(d.job); // job.{yk: {}}
+```
+
+#### 冒泡、快排
+

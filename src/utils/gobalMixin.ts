@@ -1,7 +1,7 @@
 import Vue from 'vue';
 Vue.mixin({
   methods: {
-    ctrlC: function (e) {
+    ctrlC: (e) => {
       const curNOde = e.target;
       const div = curNOde.nodeName === 'EM' ? curNOde.parentNode.nextElementSibling : curNOde.nextElementSibling;
       // @ts-ignore

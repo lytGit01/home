@@ -84,6 +84,16 @@ export default new Router({
             component: () => import('@/page/js/GC.md'),
         },
         {
+            path: '/browser',
+            name: 'browser',
+            component: () => import('@/page/browser/browser.md'),
+        },
+        {
+            path: '/statusCode',
+            name: 'statusCode',
+            component: () => import('@/page/browser/statusCode.md'),
+        },
+        {
             path: '/javaZc',
             name: 'javaZ',
             component: () => import('@/page/java/javaZc.md'),
@@ -127,6 +137,11 @@ export default new Router({
             path: '/react',
             name: 'react',
             component: () => import('@/page/react/react.md'),
+        },
+        {
+            path: '/react-redux',
+            name: 'react-redux',
+            component: () => import('@/page/react/react-redux.md'),
         },
         {
             path: '/redux+ts',

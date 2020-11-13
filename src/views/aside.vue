@@ -122,6 +122,19 @@ export default class Home extends Vue {
                 ],
             },
             {
+              title: 'browser',
+              options: [
+                {
+                  link: '/browser',
+                  title: 'browser',
+                },
+                 {
+                  link: '/statusCode',
+                  title: 'statusCode',
+                },
+              ],
+            },
+            {
                 title: 'java',
                 options: [
                     {
