@@ -14,6 +14,30 @@ export default new Router({
             component: H5,
         },
         {
+            path: '/CanvasAndSvg',
+            component: () => import('@/page/html/CanvasAndSvg.md'),
+        },
+        {
+            path: '/全屏Api',
+            component: () => import('@/page/html/全屏Api.md'),
+        },
+        {
+            path: '/drag',
+            component: () => import('@/page/html/drag.vue'),
+        },
+        {
+            path: '/onlineANDoffline',
+            component: () => import('@/page/html/onlineANDoffline.md'),
+        },
+        {
+            path: '/websocket',
+            component: () => import('@/page/html/websocket.md'),
+        },
+        {
+            path: '/workers',
+            component: () => import('@/page/html/workers.md'),
+        },
+        {
             path: '/c3',
             name: 'css3',
             component: () => import('@/page/css/css3.md'),
@@ -132,6 +156,11 @@ export default new Router({
             path: '/vue',
             name: 'vue',
             component: () => import('@/page/vue/vue.md'),
+        },
+        {
+            path: '/vueCase',
+            name: 'vueCase',
+            component: () => import('@/page/vue/vueCase.md'),
         },
         {
             path: '/react',

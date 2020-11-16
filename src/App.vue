@@ -52,6 +52,7 @@ export default class Home extends Vue {
     }
     .main {
       padding-left: 0 !important;
+      overflow: auto
     }
     .menShow {
       display: block !important;
@@ -70,6 +71,7 @@ export default class Home extends Vue {
     }
     .main {
       padding-left: 2.5rem !important;
+      overflow: auto
     }
     .hljs-lang {
       display: none;
@@ -92,6 +94,7 @@ export default class Home extends Vue {
   .mainShow {
     padding-left: 0rem !important;
     transition: padding-left .3s;
+    overflow: auto
   }
 }
 #app {
@@ -158,6 +161,7 @@ export default class Home extends Vue {
   position: absolute;
   top: .56rem;
   transition: padding-left .3s;
+  overflow: auto;
 }
 .hljs-lang {
   position: absolute;

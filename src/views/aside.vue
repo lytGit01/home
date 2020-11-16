@@ -43,11 +43,35 @@ export default class Home extends Vue {
         super();
         this.navRoute = [
             {
-                title: 'HTML',
+                title: 'h5',
                 options: [
                     {
                         link: '/h5',
                         title: 'h5',
+                    },
+                    {
+                        link: '/drag',
+                        title: 'drag',
+                    },
+                      {
+                        link: '/全屏Api',
+                        title: '全屏Api',
+                    },
+                    {
+                        link: '/CanvasAndSvg',
+                        title: 'CanvasAndSvg',
+                    },
+                    {
+                        link: '/onlineANDoffline',
+                        title: 'onlineANDoffline',
+                    },
+                    {
+                        link: '/websocket',
+                        title: 'websocket',
+                    },
+                     {
+                        link: '/workers',
+                        title: 'onlineANDoffline',
                     },
                 ],
             },
@@ -182,6 +206,10 @@ export default class Home extends Vue {
                     {
                       link: '/vue3',
                       title: 'vue3模板指令分析',
+                    },
+                     {
+                      link: '/vueCase',
+                      title: 'vueCase',
                     },
                 ],
             },
