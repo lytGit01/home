@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "element-ui": "^2.12.0",
-    "highlight.js": "^9.15.10",
+    "highlight.js": "^10.1.2",
     "lyt_scroll": "^1.1.3",
     "markdown-it": "^10.0.0",
     "style-resources-loader": "^1.3.3",
