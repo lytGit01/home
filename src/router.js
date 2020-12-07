@@ -18,8 +18,8 @@ export default new Router({
             component: () => import('@/page/html/CanvasAndSvg.md'),
         },
         {
-            path: '/全屏Api',
-            component: () => import('@/page/html/全屏Api.md'),
+            path: '/fullScreensApi',
+            component: () => import('@/page/html/fullScreensApi.md'),
         },
         {
             path: '/drag',
