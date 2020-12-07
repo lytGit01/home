@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Asd from './views/aside.vue'; // @ is an alias to /src
+import Asd from './views/aside.vue';
 
 @Component({
   components: {

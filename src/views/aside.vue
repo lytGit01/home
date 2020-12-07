@@ -54,8 +54,8 @@ export default class Home extends Vue {
                         title: 'drag',
                     },
                       {
-                        link: '/全屏Api',
-                        title: '全屏Api',
+                        link: '/fullScreensApi',
+                        title: 'fullScreensApi',
                     },
                     {
                         link: '/CanvasAndSvg',
