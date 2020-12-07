@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import ChildComponent from "../../common/conponents/ChildComponent";
+import ChildComponent from "@/common/conponents/ChildComponent";
 
 export default {
     data: () => {
@@ -21,7 +21,7 @@ export default {
             val: 66,
         };
     },
-    components: {ChildComponent},
+    components: { ChildComponent },
     mounted() {
         this.createThree();
     },
