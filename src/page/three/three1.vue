@@ -2,7 +2,6 @@
 <template>
   <div id="canvasBox">
     <div id="red" v-bind="{ id: 'blue' }"></div>
-    <ChildComponent :p.sync="page"></ChildComponent>
     <p>Message is: {{ page }}</p>
     <input type="text" v-model="val">
     <button @click="fn">按钮</button>
@@ -10,7 +9,7 @@
   </div>
 </template>
 <script>
-import ChildComponent from "../../common/conponents/ChildComponent";
+// import ChildComponent from "../../common/conponents/ChildComponent";
 
 export default {
     data: () => {
@@ -21,7 +20,6 @@ export default {
             val: 66,
         };
     },
-    components: {ChildComponent},
     mounted() {
         this.createThree();
     },

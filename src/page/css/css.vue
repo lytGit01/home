@@ -9,17 +9,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  mounted() {
-      },
-  },)
+// @Component({
+//   mounted() {
+//       },
+//   },)
 export default class Home extends Vue {
     constructor() {
         super();
     }
-     
-
-};
+}
 </script>
 <style lang="scss" scoped>
 // #cssBox{

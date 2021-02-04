@@ -145,5 +145,15 @@ export default new Router({
       name: 'three1',
       component: () => import('@/page/three/three1.vue'),
     },
+    {
+      path: '/seal',
+      name: 'seal',
+      component: () => import('@/page/contract/seal.md'),
+    },
+    {
+      path: '/flowable',
+      name: 'flowable',
+      component: () => import('@/page/flowable/vue-bpm.vue'),
+    }
 ],
 });

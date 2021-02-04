@@ -248,6 +248,24 @@ export default class Home extends Vue {
                   },
               ],
           },
+          {
+            title: '合同',
+            options: [
+              {
+                link: '/seal',
+                title: 'sealProject',
+              },
+            ],
+          },
+          {
+            title: 'flowable',
+            options: [
+              {
+                link: '/flowable',
+                title: 'flowable',
+              },
+            ],
+          },
         ];
     }
 
